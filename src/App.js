@@ -13,9 +13,14 @@ function App() {
       todo: todo
     }
 
+    if (todo != ""){
+
       setList([...list, newTodos]);
 
       setInput("");
+
+    }
+      
   }
 
   const deleteItem = (id) => {
@@ -33,34 +38,36 @@ function App() {
         
         <h1> ToDo List </h1>
         
-        <div>
-          <InputGroup className="mb-2">
+        
+          <Form>
             <Form.Control
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
+              size="lg"
+              type="text"
               placeholder="Enter a task"
               value = {input}
               onChange = {e => setInput(e.target.value)}
+              style={{ width: "40vh", textAlign: "center"}}
             />
-          </InputGroup>
-        </div>
+          </Form>
+        
         
           <div>
-              <ul style={{listStyleType: "none"}}>
+              <ul style={{listStyleType: "none", alignContent: "center"}}>
                 {list.map((todo,i) => (
                   <li key={todo.id} 
-                  style={{backgroundColor : i % 2 === 0 ? "blue" : "yellow",
+                  style={{backgroundColor : i % 2 === 0 ? "lightblue" : "white",
                   textColor: "white",
                   border: "none",
-                  display: "flex", 
+                  display: "flex",
+                  alignContent: "center", 
                   borderRadius: "5px", 
                   padding: "10px 200px", 
                   margin: "10px",
                   hover: "blue", 
                   cursor: "pointer",
                   transition: "background-color 0.3s ease"}}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = i % 2 === 0 ? "yellow" : "blue"}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = i % 2 === 0 ? "blue" : "yellow"}>
+                  onMouseEnter={(e) => e.target.style.backgroundColor = i % 2 === 0 ? "white" : "lightblue"}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = i % 2 === 0 ? "lightblue" : "white"}>
 
                   {todo.todo}&nbsp;
                   
@@ -68,7 +75,6 @@ function App() {
                   <div 
                     onClick={() => deleteItem(todo.id)}
                     style={{alignItems: "right",
-                    textAlign: "right",
                     textColor: "white"}}>
 
                     &times;
