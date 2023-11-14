@@ -86,7 +86,7 @@ function App() {
               size="lg" 
               className="btn-lg" 
               style={{
-                backgroundColor: "red",
+                backgroundColor: "white",
                 border: "2px solid red", 
                 borderRadius: "5px", 
                 padding: "10px 200px", 
